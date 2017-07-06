@@ -1,6 +1,6 @@
 {
   "name": "@laurelandwolf/redux-bees",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "A nice, declarative way of managing JSON API calls with Redux",
   "main": "lib/index.js",
   "scripts": {
@@ -28,11 +28,11 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "@laurelandwolf/data": "1.10.0",
+    "camelcase-keys": "^4.1.0",
     "object-path-immutable": "^0.5.1",
     "object.omit": "^2.0.1",
     "query-string": "^4.3.4",
-    "react-redux": "*",
-    "react": "*"
+    "react": "*",
+    "react-redux": "*"
   }
 }

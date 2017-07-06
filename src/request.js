@@ -1,4 +1,4 @@
-import {serialize} from '@laurelandwolf/data'
+import camelcaseKeys from 'camelcase-keys'
 
 export default function request(baseUrl, path, options) {
   return fetch(baseUrl + path, options)
@@ -10,8 +10,10 @@ export default function request(baseUrl, path, options) {
     })
     .then(([res, body]) => {
       if (res.status >= 200 && res.status < 300) {
-        const normalizedResponse = serialize.normalize.response(body)
-        return Promise.resolve(normalizedResponse);
+        const convertedBody = options['camelCase'] ? camelcaseKeys(
+          body, {deep: true}
+        ) : body
+        return Promise.resolve(convertedBody);
       }
       return Promise.reject(body);
     });
